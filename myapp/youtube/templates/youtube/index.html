@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Youtube Link Download</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+    <link rel="shortcut icon" href="{% static 'assets/favicon.svg' %}" type="image/x-icon">
+</head>
+<body>
+    <div class="loader-container" style="display: none;">
+        <span class="loader"></span>
+    </div>
+
+    <header class="header">
+        <h1>
+            Baixar vídeos / músicas do<br>
+                        <i class="fa-brands fa-youtube"></i>
+                        Youtube
+        </h1>
+    </header>
+
+    <main class="main">
+        <section class="section">
+            <div class="container">
+                <div class="title">
+                    <h3>
+                        Insira a URL abaixo
+                    </h3>
+                </div>
+                <form method="POST" action="/download" class="content" id="form-download">
+                    {% csrf_token %}
+                    <input type="url" class="input-url" placeholder="URL" id="url" autocomplete="off" />
+                    <div class="content-format">
+                        <button type="button" class="button-format btn" id="btn-mp3">MP3</button>
+                        <button type="button" class="button-format btn" id="btn-mp4">MP4</button>
+                        <input type="hidden" id="format" value="video" />
+                    </div>
+                    <div class="button-container">
+                        <button type="button" class="button-download btn">
+                            <i class="fa-solid fa-cloud-arrow-down"></i>
+                            Baixar
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="author">
+            <i class="fa-brands fa-github"></i>
+            <span><a href="https://github.com/josephbrito" target="_blank">José de Brito</a></span>
+        </div>
+
+        <div class="author">
+            <i class="fa-brands fa-github"></i>
+            <span><a href="https://github.com/allanaamaral" target="_blank">Allana Amaral</a></span>
+        </div>
+    </footer>
+    {% load static %}
+    <script>
+        const time = Math.floor(Math.random() * 4);
+        switch(time) {
+            case 0:
+                document.body.style.backgroundImage = `url({% static "assets/bg-0.png" %})`;
+                break;
+            case 1:
+                document.body.style.backgroundImage = `url({% static "assets/bg-1.png" %})`;
+                break;
+            case 2:
+                document.body.style.backgroundImage = `url({% static "assets/bg-2.png" %})`;
+                break;
+            case 3:
+                document.body.style.backgroundImage = `url({% static "assets/bg-3.png" %})`;
+                break;
+        }
+    </script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/5f166de9b4.js" crossorigin="anonymous"></script>
+    <script src="{% static 'js/script.js' %}"></script>
+
+</body>
+</html>
