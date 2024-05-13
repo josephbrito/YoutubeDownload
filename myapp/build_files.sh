@@ -1,3 +1,2 @@
-python3 -m venv .
-pip install -r requirements.txt
-python manage.py collectstatic
+pip3 install -r requirements.txt
+python3 manage.py collectstatic
