@@ -25,12 +25,12 @@ def DownloadVideo(req):
 
         elif midia_format == "video":
             destination = 'output/'
-            out_file = yt.streams.get_highest_resolution().download(output_path=destination)
+            out_file = yt.streams.get_highest_resolution().download()
             base, ext = os.path.splitext(out_file)
             new_file = base + '.mp4'
             os.rename(out_file, new_file)
             print("Video downloaded")
-            video_file = open(os.path.join('output/', new_file), 'rb')
+            video_file = open(os.path.join(new_file), 'rb')
 
             return FileResponse(video_file, as_attachment=True)
         else:
