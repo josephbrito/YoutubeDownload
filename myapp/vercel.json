@@ -7,10 +7,6 @@
 ],
     "routes": [
         {
-            "src": "myapp/youtube/static/(.*)",
-            "dest": "/static/$1"
-        },
-        {
             "src": "/(.*)",
             "dest": "myapp/wsgi.py"
         }
