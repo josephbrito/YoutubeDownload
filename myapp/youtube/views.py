@@ -13,7 +13,7 @@ def DownloadVideo(req):
     try:
         if midia_format == "song":
             video = yt.streams.filter(only_audio=True).first()
-            destination = tempfile.TemporaryDirectory().name
+            destination = 'output/'
             out_file = video.download(output_path=destination)
             base, ext = os.path.splitext(out_file)
             new_file = base + '.mp3'
@@ -24,7 +24,7 @@ def DownloadVideo(req):
             return FileResponse(audio_file, as_attachment=True)
 
         elif midia_format == "video":
-            destination = tempfile.TemporaryDirectory().name
+            destination = 'output/'
             out_file = yt.streams.get_highest_resolution().download(output_path=destination)
             base, ext = os.path.splitext(out_file)
             new_file = base + '.mp4'
