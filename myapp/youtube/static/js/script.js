@@ -81,6 +81,7 @@ $(document).ready(function() {
             error: function(err) {
                 console.log('deu errado');
                 $('.loader-container').css('display', 'none');
+                console.log(err);
             }
         })
     });
